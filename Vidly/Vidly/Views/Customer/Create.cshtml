@@ -1,0 +1,54 @@
+﻿@model Vidly.ViewModel.CustomerViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Save", "Customer"))
+{
+    @*@Html.AntiForgeryToken()*@
+
+    <h4>Customer</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer.Name)
+        <br />
+        @Html.TextBoxFor(model => model.Customer.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Customer.Name)
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer.DateOfBirth)
+        <br />
+        @Html.TextBoxFor(model => model.Customer.DateOfBirth, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Customer.DateOfBirth)
+    </div>
+
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(model => model.Customer.IsNewsLetterSubscribed) Is News Letter subscribed?
+        </label>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer.MembershipTypeId)
+        <br />
+        @Html.DropDownListFor(model => model.Customer.MembershipTypeId, new SelectList(Model.MembershipType, "Id", "MembershipName"),
+        "Select Membership Type", new { @class = "form-control" })
+
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Customer", "Customer")
+</div>

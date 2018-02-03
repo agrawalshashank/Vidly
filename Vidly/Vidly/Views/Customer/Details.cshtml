@@ -1,0 +1,26 @@
+﻿@model Vidly.Models.Customer
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+
+    <h2>  <b>@Html.DisplayFor(model => model.Name)</b></h2>
+    <h3>
+        @if(Model.DateOfBirth.HasValue)
+        {
+        @Model.DateOfBirth.Value.ToShortDateString()
+        }
+    </h3>
+
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Customer")
+</p>
