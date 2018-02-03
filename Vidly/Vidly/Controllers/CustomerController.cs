@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Vidly.Models;
 using System.Data.Entity;
 using Vidly.ViewModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Vidly.Controllers
 {
@@ -64,8 +65,22 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if(!ModelState.IsValid)
+            {
+                var customerViewModel = new CustomerViewModel
+                {
+                    Customer = customer,
+                    MembershipType = _context.MembershipType.ToList()
+                };
+
+                return View("Create", customerViewModel);
+
+            }
+
+
             if (customer.Id == 0)
             {
                 _context.Customer.Add(customer);
