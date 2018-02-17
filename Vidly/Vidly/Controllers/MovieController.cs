@@ -27,7 +27,13 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             var movie = _context.Movie.Include(x => x.Genre).ToList();
-            return View(movie);
+
+            if (User.IsInRole(UserRoles.CanManageMovies))
+            {
+                return View("Index", movie);
+            }
+
+            return View("IndexGuest", movie);
         }
 
         public ActionResult Details(int Id)
@@ -41,6 +47,7 @@ namespace Vidly.Controllers
             return View(movie);
         }
 
+        [Authorize(Roles = UserRoles.CanManageMovies)]
         public ActionResult Create()
         {
             var genre = _context.Genre.ToList();
@@ -48,15 +55,28 @@ namespace Vidly.Controllers
             var movieViewModel = new MovieViewModel
             {
                 Genre = genre,
-                PageTitle="Create"
+                Movie = new Movie()
             };
 
-            return View("MovieForm",movieViewModel);
+            return View("MovieForm", movieViewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var movieVieModel = new MovieViewModel
+                {
+                    Movie = movie,
+                    Genre = _context.Genre.ToList()
+                };
+
+                return View("MovieForm", movieVieModel);
+
+            }
+
             if (movie.Id == 0)
             {
                 movie.CreateDate = DateTime.Now;
@@ -85,8 +105,8 @@ namespace Vidly.Controllers
             var movieViewModel = new MovieViewModel
             {
                 Movie = movie,
-                Genre = genre,
-                PageTitle="Edit"
+                Genre = genre
+
             };
 
             return View("MovieForm", movieViewModel);

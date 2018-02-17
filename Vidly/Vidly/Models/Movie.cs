@@ -25,11 +25,15 @@ namespace Vidly.Models
 
         [Required]
         [Display(Name = "Number in stock")]
+        [Range(1,100)]
         public int NumberInStocks { get; set; }
 
         public Genre Genre { get; set; }
 
         [Display(Name = "Genre")]
         public int GenreId { get; set; }
+
+        [Required]
+        public int MoviesLeft { get; set; }
     }
 }
