@@ -134,3 +134,13 @@ D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.smallchanges.resources
 D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.csproj.GenerateResource.Cache
 D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.dll
 D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.pdb
+D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.addRoles.resources
+D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.modifyUserDetails.resources
+D:\clone\MVC\Vidly\Vidly\bin\System.Net.Http.Formatting.dll
+D:\clone\MVC\Vidly\Vidly\bin\System.Web.Http.dll
+D:\clone\MVC\Vidly\Vidly\bin\System.Web.Http.WebHost.dll
+D:\clone\MVC\Vidly\Vidly\bin\System.Net.Http.Formatting.xml
+D:\clone\MVC\Vidly\Vidly\bin\System.Web.Http.xml
+D:\clone\MVC\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
+D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.rentalClassadd.resources
+D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.movieleftcolumnadd.resources

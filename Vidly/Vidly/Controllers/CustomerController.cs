@@ -10,6 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Vidly.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         private ApplicationDbContext _context;

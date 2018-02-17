@@ -32,5 +32,8 @@ namespace Vidly.Models
 
         [Display(Name = "Genre")]
         public int GenreId { get; set; }
+
+        [Required]
+        public int MoviesLeft { get; set; }
     }
 }
