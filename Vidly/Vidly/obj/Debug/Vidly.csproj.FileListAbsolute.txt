@@ -144,3 +144,5 @@ D:\clone\MVC\Vidly\Vidly\bin\System.Web.Http.xml
 D:\clone\MVC\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
 D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.rentalClassadd.resources
 D:\clone\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.movieleftcolumnadd.resources
+D:\clone\MVC\Vidly\Vidly\bin\AutoMapper.dll
+D:\clone\MVC\Vidly\Vidly\bin\AutoMapper.xml

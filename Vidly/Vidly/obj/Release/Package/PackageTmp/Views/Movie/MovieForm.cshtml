@@ -1,0 +1,62 @@
+﻿@model Vidly.ViewModel.MovieViewModel
+
+@{
+    ViewBag.Title = "MovieForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>@Model.PageTitle</h2>
+
+    @using (Html.BeginForm("Save", "Movie"))
+    {
+        @Html.AntiForgeryToken()
+
+        <h4>Movie</h4>
+        <hr />
+        @*@Html.ValidationSummary(true)*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.MovieName)
+            <br />
+            @Html.TextBoxFor(model => model.Movie.MovieName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model=> model.Movie.MovieName)
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.ReleaseDate)
+            <br />
+            @Html.TextBoxFor(model => model.Movie.ReleaseDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Movie.ReleaseDate)
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.NumberInStocks)
+            <br />
+            @Html.TextBoxFor(model => model.Movie.NumberInStocks, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Movie.NumberInStocks)
+
+
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.Movie.GenreId)
+            <br />
+            @Html.DropDownListFor(model => model.Movie.GenreId, new SelectList(Model.Genre, "Id", "Name"), 
+            "Select Genre", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Movie.GenreId)
+        </div>
+
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.Movie.Id)
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
